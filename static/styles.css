@@ -1,0 +1,231 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* ヘッダー */
+.header {
+    background-color: #51b5a1;
+    color: white;
+    padding: 3px;
+    text-align: center;
+    border-bottom: 4px solid #ff6600;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.header h1 {
+    padding: 20px;
+    margin: 0;
+    font-size: 2em;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #eaeaea;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.all-container {
+    background-color: #ffffff;
+    height: 100vh;
+    padding-top: 40px; /* ヘッダーの高さ + 余白 */
+    padding-bottom: 80px; /* フッターの高さ + 余白 */
+}
+/* 猫のデザイン */
+ .cat-container {
+    margin: 0; /* 余白をなくす */
+    padding: 0; /* 内側の余白をなくす */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2vh;
+}
+
+  .eye {
+    position: absolute;
+    /* 以下、目のサイズとスタイル */
+    background-color: white; /* 背景色 */
+    border-radius: 50%; /* 丸い形にする *//* 瞳孔を正しい位置に配置するため */
+    display: inline-block; /* 並べて表示 */
+    width: 35%;
+    height: 10%;
+    border-radius: 50%;
+    z-index: 1; /* 要素の重なりの順序を示す。大きい→手前 */
+}   
+#left-eye {
+    top: 46.75%;
+    left:8%;
+}
+#right-eye {
+    top: 47%;
+    left: 57.2%;
+}
+.eye::before {
+    content: ""; /* 疑似要素を表示するために必要 */
+    width: 80%; /* 瞳孔の幅 */
+    height: 80%; /* 瞳孔の高さ */
+    background-color: black; /* 色 */
+    border-radius: 50%; /* 丸い形 */
+    position: absolute; /* 親要素（目）の中で位置を指定 */
+    left: 50%; /* 中央に配置 */
+    top: 50%; /* 中央に配置 */
+    transform: translate(-50%, -50%); /* 正確に中央に配置 */
+}
+
+.eye::before {
+    transform: translate(-50%, -50%) translate(var(--pupil-x, 0), var(--pupil-y, 0));
+}
+
+  
+.cat-image {
+    position: relative;
+    margin-top: 9vh;
+    height: 0;
+    max-width: 100%;
+    width:14%; /* 画像の幅を調整 */
+    padding-bottom: 50%; /* 画像のアスペクト比を保持（高さを幅の50%に設定） */
+    background-size: contain; /* 画像全体が表示されるように */
+    background-position: center; /* 画像を中央に配置 */
+    background-repeat: no-repeat; /* 画像を繰り返さない */
+    background-image: url('/static/img/cat.jpg');
+}
+
+  .text-center.mb-5 {
+    padding-top: 60px
+}
+
+/* 会話のやり取り */
+.chat-container {
+    height: 45vh;
+    width: 70vw;
+    border: 3px solid #a2c7ec;
+    background-color: #f9f9f9; /* 背景色はこちらに統一 */
+    border-radius: 10px;
+    overflow-y: auto;
+    margin: auto;
+    padding: 10px;
+    display: flex; /* 追加: フレックスボックスを使用 */
+    flex-direction: column;
+}
+
+.user-msg, .assistant-msg, .loading-msg {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 70%;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+.user-msg::before, .assistant-msg::before {
+    content: "\f6be"; /* fontawesome cat icon */
+    font-family: "Font Awesome 5 Free";
+    padding-right: 10px;
+}
+
+.user-msg {
+    background-color: #1e9bd5;
+    text-align: left;
+    margin-left: 10px;
+    border-radius: 10px 10px 10px 10px;
+    align-self: flex-start;
+    
+}
+
+.user-msg::before {
+    content: "";
+    border: 10px solid transparent;
+    border-right: 20px solid #1e9bd5;
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.assistant-msg {
+    background-color: #79d0ff;
+    margin-left: 20px;
+    border-radius: 10px 10px 10px 10px;
+    text-align: left;
+    align-self: flex-end;
+}
+
+.assistant-msg::after {
+    content: "";
+    border: 10px solid transparent;
+    border-left: 20px solid #79d0ff;
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.loading-icon {
+    animation: spin 1s linear infinite;
+}
+
+#tone-buttons .btn {
+    background-color: #d3d3d3; /* 16進数で色指定 */
+    color:#333;
+    margin-top:10px;
+    margin:10px;
+}
+
+
+#tone-buttons .btn:hover {
+    background-color: #007bff;
+    color:white;
+}
+
+/* styles.css */
+.active {
+    background-color:  #007bff !important; /* ここは選択されたボタンの背景色を設定する */
+    color: white !important; /* ここは選択されたボタンのテキスト色を設定する */
+}
+
+
+.input-group {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* フッター */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: static; /* 位置を固定しない */
+    width: 100%;
+    border-top: 4px solid #ff6600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.footer p {
+    margin: 0;
+    font-size: 1em;
+}

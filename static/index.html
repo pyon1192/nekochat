@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相談チャット</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <h1>相談チャット</h1>
+</header>
+    
+    <div class="all-container">
+        <div class="cat-container py-5">
+            <div class="cat-image">
+            <div class="eye" id="left-eye"></div>
+            <div class="eye" id="right-eye"></div>
+            </div>
+        </div>
+        <h1 class="text-center mb-5 mt-5"></h1>
+        <div class="chat-container mb-3" id="chatContainer"></div>
+        <div class="input-group">
+            <input type="text" class="form-control" id="userInput" placeholder="お悩みを書いてください...">
+            <div class="input-group-append">
+                <button class="btn btn-primary" onclick="submitQuestion()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mb-3" id = "tone-buttons">
+            <button class="btn tone-button" id="onee-tone">オネエ</button>
+            <button class="btn tone-button" id="hot-blooded-tone">熱血</button>
+            <button class="btn tone-button" id="gyaru-tone">ギャル</button>
+            <button class="btn tone-button" id="cat-tone">猫</button>
+            <button class="btn tone-button" id="cool-tone">クール</button>
+            <button class="btn tone-button" id="lady-tone">お姉さん</button>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS and jQuery -->
+    <script src="/static/script.js" ></script>
+    <footer class="footer">
+            <p>&copy; 2023 相談チャット</p>
+    </footer>
+</body>
+
+
+
+
+</html>
